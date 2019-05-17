@@ -1,6 +1,10 @@
 import { LitElement, html, css } from "lit-element";
 
 //TO-DO: Preguntar cómo hacer el background-image: url(${this.image})
+// background-image: url("https://s3.us-east-2.amazonaws.com/dzuz14/thumbnails/aurora.jpg");
+// background-size: cover;
+// background-repeat: no-repeat;
+// background-position: 50% 60%;
 
 class CarouselSlide extends LitElement {
   static get properties() {
@@ -12,19 +16,18 @@ class CarouselSlide extends LitElement {
 
   static get styles() {
     return css`
-    :host {
-      display: block;
-     
-    }
-    .slide {
+    li {
+      position: relative;
+      display: inline-block;
       width: 100%;
       height: 100%;
-      border: 1px solid blue;
+      overflow: hidden;
+      box-sizing: border-box;
+      border: 1px solid yellow;
     }
-    .image-position {
-      background-size: cover,
-      background-repeat: no-repeat,
-      background-position: 50% 60%
+    
+    img {
+      width: 100%;
     }
     `;
   }
@@ -35,7 +38,7 @@ class CarouselSlide extends LitElement {
 
   render() {
     return html`
-    <li class="slide" class="image-position">
+    <li>
       <img src=${this.image} alt="">
     </li>
   `
