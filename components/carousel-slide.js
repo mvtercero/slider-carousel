@@ -5,11 +5,13 @@ class CarouselSlide extends LitElement {
 
   static get properties() {
     return {
-      text: { type: String },
+      image: { type: String },
+      key: { type: Number }
     }
   }
 
   static get styles() {
+
     return css`
     :host {
       display: block;
@@ -28,9 +30,9 @@ class CarouselSlide extends LitElement {
 
   render() {
     return html`
-    <div class="slide">
-      <p>${this.text}</p>
-    </div>
+    <li class="slide">
+      <img src=${this.image} alt="">
+    </li>
   `
   }
 }

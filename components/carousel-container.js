@@ -6,7 +6,8 @@ class CarouselContainer extends LitElement {
 
   static get properties() {
     return {
-
+      images: { type: Array },
+      currentIndex: { type: Number }
     }
   }
 
@@ -21,13 +22,22 @@ class CarouselContainer extends LitElement {
       border: 1px solid red;
       position: relative;
     }
-    
     `;
   }
 
   constructor() {
     super();
-
+    this.images = [
+      "https://s3.us-east-2.amazonaws.com/dzuz14/thumbnails/aurora.jpg",
+      "https://s3.us-east-2.amazonaws.com/dzuz14/thumbnails/canyon.jpg",
+      "https://s3.us-east-2.amazonaws.com/dzuz14/thumbnails/city.jpg",
+      "https://s3.us-east-2.amazonaws.com/dzuz14/thumbnails/desert.jpg",
+      "https://s3.us-east-2.amazonaws.com/dzuz14/thumbnails/mountains.jpg",
+      "https://s3.us-east-2.amazonaws.com/dzuz14/thumbnails/redsky.jpg",
+      "https://s3.us-east-2.amazonaws.com/dzuz14/thumbnails/sandy-shores.jpg",
+      "https://s3.us-east-2.amazonaws.com/dzuz14/thumbnails/tree-of-life.jpg"
+    ];
+    this.currentIndex = 0;
   }
 
   goToPrevSlide() {
@@ -41,7 +51,10 @@ class CarouselContainer extends LitElement {
   render() {
     return html`
     <div class="container">
-      <carousel-slide text="hello world"></carousel-slide>
+      <ul>
+        ${this.images.map((image, index) => html`<carousel-slide image=${image} key=${index}></carousel-slide>`)}
+      </ul>
+    
       <button @click=${this.goToPrevSlide}>LEFT</button>
       <button @click=${this.goToNextSlide}>RIGHT</button>
     </div>
