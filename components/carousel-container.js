@@ -30,13 +30,21 @@ class CarouselContainer extends LitElement {
 
   }
 
+  goToPrevSlide() {
+    console.log("hacia la slide previa")
+  }
+
+  goToNextSlide() {
+    console.log("hacia la próxima slide")
+  }
+
   render() {
     return html`
     <div class="container">
-      <carousel-slide text="hello world" number="44"></carousel-slide>
-      <button>"<"LEFT</button> <button>RIGHT">"</button>
+      <carousel-slide text="hello world"></carousel-slide>
+      <button @click=${this.goToPrevSlide}>LEFT</button>
+      <button @click=${this.goToNextSlide}>RIGHT</button>
     </div>
-      
     `;
   }
 
