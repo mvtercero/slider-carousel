@@ -1,36 +1,36 @@
-import { LitElement, html } from "lit-element";
+import { LitElement, html, css } from "lit-element";
 
 
 class CarouselSlide extends LitElement {
 
   static get properties() {
     return {
-      text: { type: String, reflect: true },
-      number: { type: Number },
+      text: { type: String },
     }
+  }
+
+  static get styles() {
+    return css`
+    :host {
+      display: block;
+    }
+    .slide {
+      width: 100%;
+      height: 100%;
+      border: 1px solid blue;
+    }
+    `;
   }
 
   constructor() {
     super();
   }
 
-  set text(val) {
-    let oldval = this._text
-    this._text = val.toUpperCase()
-    this.requestUpdate("text", oldval)
-  }
-
-  connectedCallback() {
-    super.connectedCallback();
-  }
-
   render() {
     return html`
-  <p>${this._text}</p>
-  <p>${this.number}</p>
-  <button @click="${this.superChachi}">Click me Super!</button>
-  <button @click="${this.megaGuay}">Click me Mega!</button>
-  
+    <div class="slide">
+      <p>${this.text}</p>
+    </div>
   `
   }
 }

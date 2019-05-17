@@ -1,4 +1,4 @@
-import { LitElement, html } from 'lit-element';
+import { LitElement, html, css } from 'lit-element';
 import './carousel-slide';
 
 
@@ -10,6 +10,21 @@ class CarouselContainer extends LitElement {
     }
   }
 
+  static get styles() {
+    return css`
+    :host {
+      display: block;
+    }
+    .container {
+      width: 700px;
+      height: 700px;
+      border: 1px solid red;
+      position: relative;
+    }
+    
+    `;
+  }
+
   constructor() {
     super();
 
@@ -17,7 +32,11 @@ class CarouselContainer extends LitElement {
 
   render() {
     return html`
+    <div class="container">
       <carousel-slide text="hello world" number="44"></carousel-slide>
+      <button>"<"LEFT</button> <button>RIGHT">"</button>
+    </div>
+      
     `;
   }
 
