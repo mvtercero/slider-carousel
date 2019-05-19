@@ -1,47 +1,52 @@
 import { LitElement, html, css } from "lit-element";
 
-//TO-DO: Preguntar cómo hacer el background-image: url(${this.image})
-// background-image: url("https://s3.us-east-2.amazonaws.com/dzuz14/thumbnails/aurora.jpg");
-// background-size: cover;
-// background-repeat: no-repeat;
-// background-position: 50% 60%;
 
 class CarouselSlide extends LitElement {
+
   static get properties() {
     return {
-      image: { type: String },
-      key: { type: Number }
-    }
+      selected: {
+        type: Boolean,
+      },
+
+      image: {
+        type: String,
+      },
+    };
   }
 
   static get styles() {
     return css`
-    li {
-      position: relative;
-      display: inline-block;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-      box-sizing: border-box;
-      border: 1px solid yellow;
-    }
-    
-    img {
-      width: 100%;
-    }
-    `;
-  }
+        :host {
+          display: block;
+          height: 0;
+          opacity: 0;
+          position: relative;
+          transition: opacity 1.5s ease-in-out;
+          width: 100%;
+          box-sizing: border-box;
+          overflow: hidden;
+        }
+        
+        :host([selected="true"]) {
+          height: auto;
+          opacity: 1;
+        }
 
-  constructor() {
-    super();
+        img {
+          display: block;
+          width: 100%;
+        }
+      }
+    `;
   }
 
   render() {
     return html`
-    <li>
-      <img src=${this.image} alt="">
-    </li>
-  `
+      <li>
+        <img src="${this.image}">
+      </li>
+      `;
   }
 }
 
