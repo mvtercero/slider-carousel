@@ -12,16 +12,6 @@ class CarouselContainer extends LitElement {
       totalSlides: {
         type: Number,
       },
-
-      time: {
-        type: Number,
-        value: 4,
-      },
-
-      interval: {
-        type: Function,
-      },
-
     };
   }
 
@@ -33,9 +23,7 @@ class CarouselContainer extends LitElement {
 
   connectedCallback() {
     super.connectedCallback();
-    this.time = this.time || 4;
     this.setSelectedAttribute(0);
-    this.initSlider();
   }
 
   setSelectedAttribute(selectedSlide) {
@@ -46,22 +34,15 @@ class CarouselContainer extends LitElement {
   }
 
 
-  initSlider() {
-    this.interval = setInterval(this.goToNextSlide.bind(this), this.time * 1000);
-  }
-
-  pauseSlider() {
-    clearInterval(this.interval);
-    this.interval = null;
-  }
-
   goToNextSlide() {
+    console.log("click next slide")
     const selectedSlide = this.currentSlide >= this.totalSlides - 1 ? 0 : this.currentSlide + 1;
     this.setSelectedAttribute(selectedSlide);
   }
 
-  goToPreviousSlide() {
-    const currentSlide = this.currentSlide <= 0 ? this.totalSlides - 1 : this.currentSlide - 1;
+  goToPrevSlide() {
+    console.log("click prev slide")
+    const selectedSlide = this.currentSlide <= 0 ? this.totalSlides - 1 : this.currentSlide - 1;
     this.setSelectedAttribute(selectedSlide);
   }
 
@@ -104,9 +85,9 @@ class CarouselContainer extends LitElement {
     return html`
       <div>
         <ul>
-          <slot></slot>
+          <slot>
+          </slot>
         </ul>
-      
         <button @click=${this.goToPrevSlide}>PREV</button>
         <button @click=${this.goToNextSlide}>NEXT</button>
       </div>
@@ -115,6 +96,3 @@ class CarouselContainer extends LitElement {
 
 }
 customElements.define('carousel-container', CarouselContainer);
-
-// document.querySelector("carousel-container").shadowRoot.querySelector("carousel-slide").addEventListener("click", function() {alert("hola")})
-// document.querySelector("carousel-container").shadowRoot.querySelector("carousel-slide").text = "prueba"
