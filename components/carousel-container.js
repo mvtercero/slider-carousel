@@ -20,6 +20,14 @@ class CarouselContainer extends LitElement {
 
   connectedCallback() {
     super.connectedCallback();
+    this.shadowRoot.addEventListener('slotchange', this.resetSelected.bind(this))
+    this.resetSelected();
+  }
+
+  resetSelected() {
+    if (this.firstElementChild) {
+      this.firstElementChild.setAttribute('selected', '')
+    }
   }
 
   render() {
