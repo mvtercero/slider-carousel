@@ -18,14 +18,14 @@ class CarouselSlide extends LitElement {
   static get styles() {
     return css`
         :host {
+          box-sizing: border-box;
           display: block;
           height: 0;
           opacity: 0;
+          overflow: hidden;
           position: relative;
           transition: opacity 1.5s ease-in-out;
           width: 100%;
-          box-sizing: border-box;
-          overflow: hidden;
         }
         
         :host([selected="true"]) {

@@ -50,32 +50,31 @@ class CarouselContainer extends LitElement {
   static get styles() {
     return css`
       :host {
-        border: 1px solid red;
+        border: 1px solid red; 
         box-sizing: content-box;
         display: block;
-        transition: all .5s ease-in-out;
-        position: relative;
-        display: inline-block;
         margin-bottom: 22px;
+        position: relative;
+        transition: all .5s ease-in-out;
         width: 100%;
       }
 
       ul {
-        position: relative;
-        height: 420px;
-        z-index: 1;
         background-color: #3a3a3a;
         border: 10px solid #3a3a3a;
-        margin: 0 auto;
-        padding: 0;
-        overflow: hidden;
         box-sizing: border-box;
+        margin: 0 auto;
+        overflow: hidden;
+        padding: 0;
+        position: relative;
+        width: 100%;
+        z-index: 1; 
       }
       
       ::slotted(carousel-slide) {
         left: 0;
-        position: relative;
         top: 0;
+        position: relative;
         width: 100%;
       }
     `;
@@ -83,10 +82,9 @@ class CarouselContainer extends LitElement {
 
   render() {
     return html`
-      <div>
+      <div class="container">
         <ul>
-          <slot>
-          </slot>
+          <slot></slot>
         </ul>
         <button @click=${this.goToPrevSlide}>PREV</button>
         <button @click=${this.goToNextSlide}>NEXT</button>
