@@ -50,7 +50,6 @@ class CarouselContainer extends LitElement {
   static get styles() {
     return css`
       :host {
-        border: 1px solid red; 
         box-sizing: content-box;
         display: block;
         margin-bottom: 22px;
@@ -70,7 +69,6 @@ class CarouselContainer extends LitElement {
         z-index: 1; 
       }
 
-
       button {
         position: absolute;
         top: calc(50% - 20px);
@@ -82,6 +80,7 @@ class CarouselContainer extends LitElement {
         font-size: 40px;
         font-weight: bold;
         opacity: 0.7;
+        outline:none;
       }
 
       button:hover,

@@ -1,5 +1,15 @@
 import { LitElement, html, css } from "lit-element";
 
+// return html`
+// <style>
+//   li {
+//     background-image: url(${this.image});
+//     background-size: cover;
+//     background-repeat: no-repeat;
+//     background-position: 50% 60%;
+//   }
+// </style>
+
 
 class CarouselSlide extends LitElement {
 
@@ -25,7 +35,7 @@ class CarouselSlide extends LitElement {
           overflow: hidden;
           position: relative;
           transition: opacity 1.5s ease-in-out;
-          width: 100%;
+          width: 100%
         }
         
         :host([selected="true"]) {
