@@ -60,17 +60,43 @@ class CarouselContainer extends LitElement {
       }
 
       ul {
-        background-color: #3a3a3a;
-        border: 10px solid #3a3a3a;
+        background-color: #DDD;
+        border: 10px solid #DDD;
         box-sizing: border-box;
         margin: 0 auto;
         overflow: hidden;
         padding: 0;
-        position: relative;
         width: 100%;
         z-index: 1; 
       }
-      
+
+
+      button {
+        position: absolute;
+        top: calc(50% - 20px);
+        padding: 0;
+        line-height: 40px;
+        border: none;
+        background: none;
+        color: #DDD;
+        font-size: 40px;
+        font-weight: bold;
+        opacity: 0.7;
+      }
+
+      button:hover,
+      button:focus {
+        opacity: 1;
+      }
+
+      #prevBtn {
+        left: 12px;
+      }
+
+      #nextBtn {
+        right: 12px;
+      }
+
       ::slotted(carousel-slide) {
         left: 0;
         top: 0;
@@ -86,8 +112,8 @@ class CarouselContainer extends LitElement {
         <ul>
           <slot></slot>
         </ul>
-        <button @click=${this.goToPrevSlide}>PREV</button>
-        <button @click=${this.goToNextSlide}>NEXT</button>
+        <button id="prevBtn" @click=${this.goToPrevSlide}>&#x276E;</button>
+        <button id="nextBtn" @click=${this.goToNextSlide}>&#x276F;</button>
       </div>
     `;
   }
