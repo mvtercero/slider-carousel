@@ -1,59 +1,98 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>slider-carousel demo</title>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes"
-    />
-    <script type="module" src="../slider-carousel.js"></script>
-    <style>
-      .blocks {
-        display: flex;
-        display-direction: row;
-        flex-wrap: wrap;
-      }
-      .block {
-        display: flex;
-        display-direction: column;
-        flex-wrap: wrap;
-        white-space: normal;
-      }
-      .code {
-        padding: 20px;
-        color: #fff;
-        background: #000;
-      }
-      .attributes {
-        padding-left: 20px;
-      }
-    </style>
-  </head>
 
-  <body>
-    <div class="vertical-section-container centered">
-      <h3>Basic slider-carousel Demo</h3>
-      <div class="blocks">
-        <pre class="block code">
+<head>
+  <title>slider-carousel demo</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes" />
+  <script type="module" src="../components/carousel-container.js"></script>
+  <style>
+    .blocks {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+
+    .block {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      white-space: normal;
+    }
+
+    .code {
+      padding: 20px;
+      color: #fff;
+      background: #000;
+    }
+
+    .attributes {
+      padding-left: 20px;
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+    }
+
+    h3 {
+      margin: 0px;
+    }
+
+    ul {
+      margin: 0px;
+      padding: 0px;
+      text-decoration: none;
+      display: flex;
+    }
+
+    li {
+      list-style: none;
+      text-align: center;
+      margin: 12px 12px 12px 0;
+      border: 1px solid black;
+      padding: 12px;
+      width: 200px;
+    }
+  </style>
+</head>
+
+<div class="vertical-section-container centered">
+  <h3>Basic Carousel Demo</h3>
+  <div class="blocks">
+    <pre class="block code">
           <code>
-            &lt;slider-carousel&gt;&lt;/slider-carousel&gt;
+            &lt;carousel-container&gt;
+            &lt;carousel-slide&gt;
+            &lt;/carousel-slide&gt;
+            &lt;/carousel-container&gt;
           </code>
         </pre>
-        <pre class="block attributes">
+    <pre class="block attributes">
           <h3>Attributes</h3>
           <ul>
-            <li>property1 (String)</li>
-            <li>property2 (Number)</li>
+            <li>
+                <h3>&lt;carousel-container&gt;</h3>
+                  <p>currentSlide(Number)</p>
+                  <p>totalSlides(Number)</p>
+            </li>
+
+            <li>
+                <h3>&lt;carousel-slide&gt;</h3>
+                  <p>selected(Boolean)</p>
+                  <p>image(String)</p>
+            </li>
           </ul>
         </pre>
-      </div>
+  </div>
 
-      <slider-carousel>
-        <img />
-        <img />
-        <div><p>hellou</p></div>
-      </slider-carousel>
-    </div>
+  <body>
+    <carousel-container>
+      <carousel-slide image="https://s3.us-east-2.amazonaws.com/dzuz14/thumbnails/aurora.jpg"></carousel-slide>
+      <carousel-slide image="https://s3.us-east-2.amazonaws.com/dzuz14/thumbnails/canyon.jpg"></carousel-slide>
+      <carousel-slide image="https://s3.us-east-2.amazonaws.com/dzuz14/thumbnails/city.jpg"></carousel-slide>
+      <carousel-slide image="https://s3.us-east-2.amazonaws.com/dzuz14/thumbnails/desert.jpg"></carousel-slide>
+    </carousel-container>
   </body>
+
+</div>
+
 </html>
