@@ -1,5 +1,6 @@
 import { LitElement, html, css } from 'lit-element';
 import './carousel-slide';
+import './prueba-estilos';
 
 
 class CarouselContainer extends LitElement {
@@ -12,6 +13,10 @@ class CarouselContainer extends LitElement {
       totalSlides: {
         type: Number,
       },
+
+      disabled: {
+        type: Boolean,
+      }
     };
   }
 
